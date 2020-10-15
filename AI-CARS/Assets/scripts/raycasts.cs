@@ -28,19 +28,25 @@ public class raycasts : MonoBehaviour
 
     void Start()
     {
-        
+       
     }
 
     void Update()
     {
+        updateRays();
+
         showRaycast();
+
         startRayCasting();
     }
-    //display debug rays of raycasts
+
+    //display debug raycasts of rays - don't care about other methodes
     private void showRaycast()
     {
         if(DebugShowRaysToggle)
         {
+
+            //there is a issue with ray lenght of 4 diagonal rays frontleft etc... forced to set them to magnitude lenght
             //front
             Debug.DrawRay(transform.position, transform.forward * DebugRayLength, Color.green);
             //back
@@ -60,21 +66,65 @@ public class raycasts : MonoBehaviour
         }
         
     }
+    //methode that updates position and direction of all rays.
+    private void updateRays()
+    {
+        //source of ray
+        F.origin = transform.position;
+        FR.origin = transform.position;
+        FL.origin = transform.position;
+        BL.origin = transform.position;
+        BR.origin = transform.position;
+        B.origin = transform.position;
+        R.origin = transform.position;
+        L.origin = transform.position;
+
+        //direction of ray
+        F.direction = transform.forward;
+        FR.direction = transform.forward + transform.right;
+        FL.direction = transform.forward - transform.right;
+        BL.direction = -transform.forward - transform.right;
+        BR.direction = -transform.forward + transform.right;
+        B.direction = -transform.forward;
+        R.direction = transform.right;
+        L.direction = -transform.right;
+    }
     private void startRayCasting()
     {
         if (Physics.Raycast(F, out H_F, rayLength))
         {
             print(DebugShowHitInfo(H_F) + "Front");
-        }    
-       
-        Physics.Raycast(FR, out H_FR, rayLength);
-        Physics.Raycast(FL, out H_FL, rayLength);
-        Physics.Raycast(B, out H_B, rayLength);
-        Physics.Raycast(BL, out H_BL, rayLength);
-        Physics.Raycast(BR, out H_BR, rayLength);
-        Physics.Raycast(L, out H_L, rayLength);
-        Physics.Raycast(R, out H_R, rayLength);
+        }
+        if (Physics.Raycast(FR, out H_FR, new Vector2(rayLength, rayLength).magnitude))
+        {
+            print(DebugShowHitInfo(H_FR) + "FrontRight");
+        }
+        if (Physics.Raycast(FL, out H_FL, new Vector2(rayLength, rayLength).magnitude))
+        {
+            print(DebugShowHitInfo(H_FL) + "FrontLeft");
+        }
+        if (Physics.Raycast(B, out H_B, rayLength))
+        {
+            print(DebugShowHitInfo(H_B) + "Back");
+        }
+        if (Physics.Raycast(BR, out H_BR, new Vector2(rayLength, rayLength).magnitude))
+        {
+            print(DebugShowHitInfo(H_BR) + "BackRight");
+        }
+        if (Physics.Raycast(BL, out H_BL, new Vector2(rayLength, rayLength).magnitude))
+        {
+            print(DebugShowHitInfo(H_BL) + "BackLeft");
+        }
+        if (Physics.Raycast(L, out H_L, rayLength))
+        {
+            print(DebugShowHitInfo(H_L) + "Left");
+        }
+        if (Physics.Raycast(R, out H_R, rayLength))
+        {
+            print(DebugShowHitInfo(H_R) + "Right");
+        }
     }
+    //methode that generates text that will be displayed whenever ray hit target in range
     private string DebugShowHitInfo(RaycastHit hit)
     {
         return "Detected raycast hit name: " + hit.transform.name + ". At distance: " + hit.distance +". Direction: ";
