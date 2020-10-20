@@ -91,38 +91,42 @@ public class raycasts : MonoBehaviour
     }
     private void startRayCasting()
     {
-        if (Physics.Raycast(F, out H_F, rayLength))
+        if(DebugShowHitInfoToggle)
         {
-            print(DebugShowHitInfo(H_F) + "Front");
+            if (Physics.Raycast(F, out H_F, rayLength))
+            {
+                print(DebugShowHitInfo(H_F) + "Front");
+            }
+            if (Physics.Raycast(FR, out H_FR, new Vector2(rayLength, rayLength).magnitude))
+            {
+                print(DebugShowHitInfo(H_FR) + "FrontRight");
+            }
+            if (Physics.Raycast(FL, out H_FL, new Vector2(rayLength, rayLength).magnitude))
+            {
+                print(DebugShowHitInfo(H_FL) + "FrontLeft");
+            }
+            if (Physics.Raycast(B, out H_B, rayLength))
+            {
+                print(DebugShowHitInfo(H_B) + "Back");
+            }
+            if (Physics.Raycast(BR, out H_BR, new Vector2(rayLength, rayLength).magnitude))
+            {
+                print(DebugShowHitInfo(H_BR) + "BackRight");
+            }
+            if (Physics.Raycast(BL, out H_BL, new Vector2(rayLength, rayLength).magnitude))
+            {
+                print(DebugShowHitInfo(H_BL) + "BackLeft");
+            }
+            if (Physics.Raycast(L, out H_L, rayLength))
+            {
+                print(DebugShowHitInfo(H_L) + "Left");
+            }
+            if (Physics.Raycast(R, out H_R, rayLength))
+            {
+                print(DebugShowHitInfo(H_R) + "Right");
+            }
         }
-        if (Physics.Raycast(FR, out H_FR, new Vector2(rayLength, rayLength).magnitude))
-        {
-            print(DebugShowHitInfo(H_FR) + "FrontRight");
-        }
-        if (Physics.Raycast(FL, out H_FL, new Vector2(rayLength, rayLength).magnitude))
-        {
-            print(DebugShowHitInfo(H_FL) + "FrontLeft");
-        }
-        if (Physics.Raycast(B, out H_B, rayLength))
-        {
-            print(DebugShowHitInfo(H_B) + "Back");
-        }
-        if (Physics.Raycast(BR, out H_BR, new Vector2(rayLength, rayLength).magnitude))
-        {
-            print(DebugShowHitInfo(H_BR) + "BackRight");
-        }
-        if (Physics.Raycast(BL, out H_BL, new Vector2(rayLength, rayLength).magnitude))
-        {
-            print(DebugShowHitInfo(H_BL) + "BackLeft");
-        }
-        if (Physics.Raycast(L, out H_L, rayLength))
-        {
-            print(DebugShowHitInfo(H_L) + "Left");
-        }
-        if (Physics.Raycast(R, out H_R, rayLength))
-        {
-            print(DebugShowHitInfo(H_R) + "Right");
-        }
+        
     }
     //methode that generates text that will be displayed whenever ray hit target in range
     private string DebugShowHitInfo(RaycastHit hit)
