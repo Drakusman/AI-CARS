@@ -6,6 +6,7 @@ TagManager:
   tags:
   - player
   - Terrain
+  - ai_car
   layers:
   - Default
   - TransparentFX

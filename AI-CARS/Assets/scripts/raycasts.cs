@@ -36,6 +36,16 @@ public class raycasts : MonoBehaviour
     Ray F, FR, R, BR, B, BL, L, FL;
     RaycastHit H_F, H_FR, H_R, H_BR, H_B, H_BL, H_L, H_FL;
 
+    [Header("Raycast possitions")]
+    public GameObject gameObject_F;
+    public GameObject gameObject_FR;
+    public GameObject gameObject_FL;
+    public GameObject gameObject_B;
+    public GameObject gameObject_BR;
+    public GameObject gameObject_BL;
+    public GameObject gameObject_R;
+    public GameObject gameObject_L;
+ 
     void Update()
     {
         updateRays();
@@ -51,21 +61,21 @@ public class raycasts : MonoBehaviour
         if (DebugShowRaysToggle && DebugMagnitudeOrNormal)
         {
             //front
-            Debug.DrawRay(transform.position, transform.forward * DebugRayLength, Color.green);
+            Debug.DrawRay(gameObject_F.transform.position, transform.forward * DebugRayLength, Color.green);
             //back
-            Debug.DrawRay(transform.position, -transform.forward * DebugRayLength, Color.green);
+            Debug.DrawRay(gameObject_B.transform.position, -transform.forward * DebugRayLength, Color.green);
             //right
-            Debug.DrawRay(transform.position, transform.right * DebugRayLength, Color.green);
+            Debug.DrawRay(gameObject_R.transform.position, transform.right * DebugRayLength, Color.green);
             //left
-            Debug.DrawRay(transform.position, -transform.right * DebugRayLength, Color.green);
+            Debug.DrawRay(gameObject_L.transform.position, -transform.right * DebugRayLength, Color.green);
             //front right
-            Debug.DrawRay(transform.position, (transform.forward + transform.right) / new Vector2(1, 1).magnitude * new Vector2(DebugRayLength, 0).magnitude, Color.green);
+            Debug.DrawRay(gameObject_FR.transform.position, (transform.forward + transform.right) / new Vector2(1, 1).magnitude * new Vector2(DebugRayLength, 0).magnitude, Color.green);
             // front left
-            Debug.DrawRay(transform.position, (transform.forward - transform.right) / new Vector2(1, 1).magnitude * new Vector2(DebugRayLength, 0).magnitude, Color.green);
+            Debug.DrawRay(gameObject_FL.transform.position, (transform.forward - transform.right) / new Vector2(1, 1).magnitude * new Vector2(DebugRayLength, 0).magnitude, Color.green);
             //back right
-            Debug.DrawRay(transform.position, (-transform.forward + transform.right) / new Vector2(1, 1).magnitude * new Vector2(DebugRayLength, 0).magnitude, Color.green);
+            Debug.DrawRay(gameObject_BR.transform.position, (-transform.forward + transform.right) / new Vector2(1, 1).magnitude * new Vector2(DebugRayLength, 0).magnitude, Color.green);
             //back left
-            Debug.DrawRay(transform.position, (-transform.forward - transform.right) / new Vector2(1, 1).magnitude * new Vector2(DebugRayLength, 0).magnitude, Color.green);
+            Debug.DrawRay(gameObject_BL.transform.position, (-transform.forward - transform.right) / new Vector2(1, 1).magnitude * new Vector2(DebugRayLength, 0).magnitude, Color.green);
         }
         if (DebugShowRaysToggle && !DebugMagnitudeOrNormal)
         {
@@ -145,35 +155,48 @@ public class raycasts : MonoBehaviour
     {
         if (Physics.Raycast(F, out H_F, rayLength) && checkHit(H_F))
         {
+
             print(DebugShowHitInfo(H_F) + "Front");
+            Debug.DrawLine(gameObject_F.transform.position, H_F.point, Color.red);
         }
         if (Physics.Raycast(FR, out H_FR, rayLength) && checkHit(H_FR))
         {
             print(DebugShowHitInfo(H_FR) + "FrontRight");
+            Debug.DrawLine(gameObject_FR.transform.position, H_FR.point, Color.red);
         }
         if (Physics.Raycast(FL, out H_FL, rayLength) && checkHit(H_FL))
         {
             print(DebugShowHitInfo(H_FL) + "FrontLeft");
+            Debug.DrawLine(gameObject_FL.transform.position, H_FL.point, Color.red);
         }
         if (Physics.Raycast(B, out H_B, rayLength) && checkHit(H_B))
         {
             print(DebugShowHitInfo(H_B) + "Back");
+            Debug.DrawLine(gameObject_B.transform.position, H_B.point, Color.red);
         }
         if (Physics.Raycast(BR, out H_BR, rayLength) && checkHit(H_BR))
         {
             print(DebugShowHitInfo(H_BR) + "BackRight");
+            Debug.DrawLine(gameObject_BR.transform.position, H_BR.point, Color.red);
         }
         if (Physics.Raycast(BL, out H_BL, rayLength) && checkHit(H_BL))
         {
+            
+
             print(DebugShowHitInfo(H_BL) + "BackLeft");
+            Debug.DrawLine(gameObject_BL.transform.position, H_BL.point, Color.red);
         }
         if (Physics.Raycast(L, out H_L, rayLength) && checkHit(H_L))
         {
+            gameObject.GetComponent<CarEngine>().avoiding = true;
+            gameObject.GetComponent<CarEngine>().avoidMultiplier += 1f;
             print(DebugShowHitInfo(H_L) + "Left");
+            Debug.DrawLine(gameObject_L.transform.position, H_L.point,Color.red);
         }
         if (Physics.Raycast(R, out H_R, rayLength) && checkHit(H_R))
         {
             print(DebugShowHitInfo(H_R) + "Right");
+            Debug.DrawLine(gameObject_R.transform.position, H_R.point, Color.red);
         }
     }
     private void printShowHitInfoMAGNITUDE()
