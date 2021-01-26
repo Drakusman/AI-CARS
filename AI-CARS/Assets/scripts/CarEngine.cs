@@ -91,6 +91,15 @@ public class CarEngine : MonoBehaviour {
                 avoidMultiplier -= 1f;
             }
         }
+        else if (Physics.Raycast(gameObject_F1L.transform.position, transform.forward, out hit, frontSensorLength))
+        {
+            if (!hit.collider.CompareTag("Terrain"))
+            {
+                Debug.DrawLine(gameObject_F1L.transform.position, hit.point);
+                avoiding = true;
+                avoidMultiplier += 1f;
+            }
+        }
 
         //front right angle sensor
         else if (Physics.Raycast(gameObject_FR.transform.position, Quaternion.AngleAxis(frontRight_frontLeft_SensorAngle, transform.up) * transform.forward, out hit, frontRight_frontLeft_SensorLength)) 
@@ -102,7 +111,8 @@ public class CarEngine : MonoBehaviour {
                 avoidMultiplier -= 0.5f;
             }
         }
-        else if(Physics.Raycast(gameObject_R.transform.position, Quaternion.AngleAxis(right_left_SensorAngle,transform.up) * transform.forward,out hit,right_left_SensorLength))
+        //front left sensor
+        else if (Physics.Raycast(gameObject_R.transform.position, Quaternion.AngleAxis(right_left_SensorAngle,transform.up) * transform.forward,out hit,right_left_SensorLength))
         {
             if (!hit.collider.CompareTag("Terrain"))
             {
@@ -112,17 +122,9 @@ public class CarEngine : MonoBehaviour {
             }
         }
 
-        //front left sensor
         
-        if (Physics.Raycast(gameObject_F1L.transform.position, transform.forward, out hit, frontSensorLength)) 
-        {
-            if (!hit.collider.CompareTag("Terrain")) 
-            {
-                Debug.DrawLine(gameObject_F1L.transform.position, hit.point);
-                avoiding = true;
-                avoidMultiplier += 1f;
-            }
-        }
+        
+        
 
         //front left angle sensor
         else if (Physics.Raycast(gameObject_FL.transform.position, Quaternion.AngleAxis(-frontRight_frontLeft_SensorAngle, transform.up) * transform.forward, out hit, frontRight_frontLeft_SensorLength)) 
