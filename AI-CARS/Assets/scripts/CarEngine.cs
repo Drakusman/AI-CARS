@@ -3,23 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class CarEngine : MonoBehaviour {
-
+    [Header("Path object")]
     public Transform path;
-    public float maxSteerAngle = 45f;
-    public float turnSpeed = 5f;
+    
+    [Header("Wheel Colliders")]
     public WheelCollider wheelFL;
     public WheelCollider wheelFR;
-    public WheelCollider wheelRL;
-    public WheelCollider wheelRR;
+    public WheelCollider wheelBL;
+    public WheelCollider wheelBR;
+
+    [Header("Wheel Transforms")]
+    public Transform wheelFL_transform;
+    public Transform wheelFR_transform;
+    public Transform wheelBL_transform;
+    public Transform wheelBR_transform;
+
+    [Header("Motor settings")]
     public float maxMotorTorque = 80f;
     public float maxBrakeTorque = 150f;
-    public float currentSpeed;
     public float maxSpeed = 100f;
-    public Vector3 centerOfMass;
+    public float currentSpeed;
+
+    [Header("Wheels settings")]
+    public float maxSteerAngle = 45f;
+    public float turnSpeed = 5f;
     public bool isBraking = false;
-    public Texture2D textureNormal;
-    public Texture2D textureBraking;
-    public Renderer carRenderer;
 
     [Header("Sensors")]
     public float frontSensorLength = 30f;
@@ -27,6 +35,8 @@ public class CarEngine : MonoBehaviour {
     public float right_left_SensorLength = 30f;
     public float frontRight_frontLeft_SensorAngle = 30f;
     public float right_left_SensorAngle = 30f;
+    public bool avoiding = false;
+    public float avoidMultiplier = 0;
 
     [Header("Raycast possitions")]
     public GameObject gameObject_F;
@@ -40,13 +50,16 @@ public class CarEngine : MonoBehaviour {
     public GameObject gameObject_R;
     public GameObject gameObject_L;
 
+    [Header("Other")]
+    public Vector3 centerOfMass;
+    public Texture2D textureNormal;
+    public Texture2D textureBraking;
+    public Renderer carRenderer;
+    
     private List<Transform> nodes;
     private int currectNode = 0;
-    public bool avoiding = false;
-    public float avoidMultiplier = 0;
-
     private float targetSteerAngle = 0;
-
+    
     private void Start() 
     {
         GetComponent<Rigidbody>().centerOfMass = centerOfMass;
@@ -69,104 +82,333 @@ public class CarEngine : MonoBehaviour {
         ApplySteer();
         Drive();
         CheckWaypointDistance();
-        Braking();
+        //Braking();
         LerpToSteerAngle();
     }
 
     private void Sensors() 
     {
         RaycastHit hit;
-        
+
+        int angle_min = 120, angle_max=270;
+        float angle_fix = transform.localRotation.eulerAngles.y;
+        //variable that fixs dodge depends of rotation of car
+        print(angle_fix);
+        bool angle_rotation_fix;//r>90 and r<270 true -> else false
+        if (angle_fix>= angle_min && angle_fix<= angle_max)
+        {
+            angle_rotation_fix = true;
+        }
+        else
+        {
+            angle_rotation_fix = false;
+        }
         avoidMultiplier = 0;
         avoiding = false;
 
-        //front right sensor
        
-        if (Physics.Raycast(gameObject_F1R.transform.position, transform.forward, out hit, frontSensorLength)) 
-        {
-            if (!hit.collider.CompareTag("Terrain")) 
-            {
-                Debug.DrawLine(gameObject_F1R.transform.position, hit.point);
-                avoiding = true;
-                avoidMultiplier -= 1f;
-            }
-        }
-        else if (Physics.Raycast(gameObject_F1L.transform.position, transform.forward, out hit, frontSensorLength))
-        {
-            if (!hit.collider.CompareTag("Terrain"))
-            {
-                Debug.DrawLine(gameObject_F1L.transform.position, hit.point);
-                avoiding = true;
-                avoidMultiplier += 1f;
-            }
-        }
 
-        //front right angle sensor
-        else if (Physics.Raycast(gameObject_FR.transform.position, Quaternion.AngleAxis(frontRight_frontLeft_SensorAngle, transform.up) * transform.forward, out hit, frontRight_frontLeft_SensorLength)) 
+        switch (isBraking)
         {
-            if (!hit.collider.CompareTag("Terrain")) 
-            {
-                Debug.DrawLine(gameObject_FR.transform.position, hit.point);
-                avoiding = true;
-                avoidMultiplier -= 0.5f;
-            }
-        }
-        //front left sensor
-        else if (Physics.Raycast(gameObject_R.transform.position, Quaternion.AngleAxis(right_left_SensorAngle,transform.up) * transform.forward,out hit,right_left_SensorLength))
-        {
-            if (!hit.collider.CompareTag("Terrain"))
-            {
-                Debug.DrawLine(gameObject_R.transform.position, hit.point);
-                avoiding = true;
-                avoidMultiplier -= 0.25f;
-            }
-        }
-
-        
-        
-        
-
-        //front left angle sensor
-        else if (Physics.Raycast(gameObject_FL.transform.position, Quaternion.AngleAxis(-frontRight_frontLeft_SensorAngle, transform.up) * transform.forward, out hit, frontRight_frontLeft_SensorLength)) 
-        {
-            if (!hit.collider.CompareTag("Terrain")) 
-            {
-                Debug.DrawLine(gameObject_FL.transform.position, hit.point);
-                avoiding = true;
-                avoidMultiplier += 0.5f;
-            }
-        }
-        else if (Physics.Raycast(gameObject_L.transform.position, Quaternion.AngleAxis(-right_left_SensorAngle, transform.up) * transform.forward, out hit, right_left_SensorLength))
-        {
-            if (!hit.collider.CompareTag("Terrain"))
-            {
-                Debug.DrawLine(gameObject_L.transform.position, hit.point);
-                avoiding = true;
-                avoidMultiplier += 0.25f;
-            }
-        }
-
-
-        //front center sensor
-        if (avoidMultiplier == 0) 
-        {
-            if (Physics.Raycast(gameObject_F.transform.position, transform.forward, out hit, frontSensorLength)) 
-            {
-                if (!hit.collider.CompareTag("Terrain")) 
+            case true:
                 {
-                    Debug.DrawLine(gameObject_F.transform.position, hit.point);
-                    avoiding = true;
-                    if (hit.normal.x < 0) 
+                    //front center sensor
+                    if (Physics.Raycast(gameObject_F.transform.position, transform.forward, out hit, frontSensorLength) && !hit.collider.CompareTag("Terrain"))
                     {
-                        avoidMultiplier = -1;
-                    } 
-                    else 
-                    {
-                        avoidMultiplier = 1;
+
+                        Debug.DrawLine(gameObject_F.transform.position, hit.point);
+                        avoiding = true;
+                        //dodge depends where raycast hit.
+                        if (hit.transform.position.x < hit.point.x)
+                        {
+                            if(angle_rotation_fix)
+                            {
+                                avoidMultiplier += 1;
+                            }
+                            else
+                            {
+                                avoidMultiplier -= 1;
+                            }
+                            
+                        }
+                        else
+                        {
+                            if (angle_rotation_fix)
+                            {
+                                avoidMultiplier -= 1;
+                            }
+                            else
+                            {
+                                avoidMultiplier += 1;
+                            }
+                        }
+                        if (Vector3.Distance(hit.transform.position, transform.position) < 20f + 10f)
+                        {
+                            isBraking = true;
+                        }
+                        else
+                        {
+                            isBraking = false;
+                        }
+
                     }
+                    // front right1 sensor
+                    else if (Physics.Raycast(gameObject_F1R.transform.position, transform.forward, out hit, frontSensorLength) && !hit.collider.CompareTag("Terrain"))
+                    {
+
+                        Debug.DrawLine(gameObject_F1R.transform.position, hit.point);
+                        avoiding = true;
+                        if (hit.transform.position.x < hit.point.x)
+                        {
+
+                            if (angle_rotation_fix)
+                            {
+                                avoidMultiplier += 1;
+                            }
+                            else
+                            {
+                                avoidMultiplier -= 1;
+                            }
+                        }
+                        else
+                        {
+                            if (angle_rotation_fix)
+                            {
+                                avoidMultiplier -= 1;
+                            }
+                            else
+                            {
+                                avoidMultiplier += 1;
+                            }
+                        }
+                        if (Vector3.Distance(hit.transform.position, transform.position) < 20f + 10f)
+                        {
+                            isBraking = true;
+                        }
+                        else
+                        {
+                            isBraking = false;
+                        }
+
+                    }
+                    // front left1 sensor
+                    else if (Physics.Raycast(gameObject_F1L.transform.position, transform.forward, out hit, frontSensorLength) && !hit.collider.CompareTag("Terrain"))
+                    {
+
+                        Debug.DrawLine(gameObject_F1L.transform.position, hit.point);
+                        avoiding = true;
+                        if (hit.transform.position.x < hit.point.x)
+                        {
+                            if (angle_rotation_fix)
+                            {
+                                avoidMultiplier += 1;
+                            }
+                            else
+                            {
+                                avoidMultiplier -= 1;
+                            }
+                        }
+                        else
+                        {
+                            if (angle_rotation_fix)
+                            {
+                                avoidMultiplier -= 1;
+                            }
+                            else
+                            {
+                                avoidMultiplier += 1;
+                            }
+                        }
+                        if (Vector3.Distance(hit.transform.position, transform.position) < 20f + 10f)
+                        {
+                            isBraking = true;
+                        }
+                        else
+                        {
+                            isBraking = false;
+                        }
+                    }
+                    else
+                    {
+                        isBraking = false;
+                    }
+                   
+                    break;
                 }
-            }
+            case false:
+                {
+                    //front center sensor
+                    if (Physics.Raycast(gameObject_F.transform.position, transform.forward, out hit, frontSensorLength) && !hit.collider.CompareTag("Terrain"))
+                    {
+                        Debug.DrawLine(gameObject_F.transform.position, hit.point);
+                        avoiding = true;
+                        //dodge depends where raycast hit.
+                        if (hit.transform.position.x < hit.point.x)
+                        {
+                            if (angle_rotation_fix)
+                            {
+                                avoidMultiplier -= 1;
+                            }
+                            else
+                            {
+                                avoidMultiplier += 1;
+                            }
+                        }
+                        else
+                        {
+                            if (angle_rotation_fix)
+                            {
+                                avoidMultiplier += 1;
+                            }
+                            else
+                            {
+                                avoidMultiplier -= 1;
+                            }
+                        }
+                        if (Vector3.Distance(hit.transform.position, transform.position) < 20f)
+                        {
+                            isBraking = true;
+                        }
+                        else
+                        {
+                            isBraking = false;
+                        }
+
+                    }
+                    // front right1 sensor
+                    else if (Physics.Raycast(gameObject_F1R.transform.position, transform.forward, out hit, frontSensorLength) && !hit.collider.CompareTag("Terrain"))
+                    {
+
+                        Debug.DrawLine(gameObject_F1R.transform.position, hit.point);
+                        avoiding = true;
+                        if (hit.transform.position.x < hit.point.x)
+                        {
+                            if (angle_rotation_fix)
+                            {
+                                avoidMultiplier -= 1;
+                            }
+                            else
+                            {
+                                avoidMultiplier += 1;
+                            }
+                        }
+                        else
+                        {
+                            if (angle_rotation_fix)
+                            {
+                                avoidMultiplier += 1;
+                            }
+                            else
+                            {
+                                avoidMultiplier -= 1;
+                            }
+                        }
+                        if (Vector3.Distance(hit.transform.position, transform.position) < 20f)
+                        {
+                            isBraking = true;
+                        }
+                        else
+                        {
+                            isBraking = false;
+                        }
+
+                    }
+                    // front left1 sensor
+                    else if (Physics.Raycast(gameObject_F1L.transform.position, transform.forward, out hit, frontSensorLength) && !hit.collider.CompareTag("Terrain"))
+                    {
+
+                        Debug.DrawLine(gameObject_F1L.transform.position, hit.point);
+                        avoiding = true;
+                        if (hit.transform.position.x < hit.point.x)
+                        {
+                            if (angle_rotation_fix)
+                            {
+                                avoidMultiplier -= 1;
+                            }
+                            else
+                            {
+                                avoidMultiplier += 1;
+                            }
+                        }
+                        else
+                        {
+                            if (angle_rotation_fix)
+                            {
+                                avoidMultiplier += 1;
+                            }
+                            else
+                            {
+                                avoidMultiplier -= 1;
+                            }
+                        }
+                        if (Vector3.Distance(hit.transform.position, transform.position) < 20f)
+                        {
+                            isBraking = true;
+                        }
+                        else
+                        {
+                            isBraking = false;
+                        }
+                    }
+                    // front right sensor or front left sensor
+                    else if (Physics.Raycast(gameObject_FR.transform.position, Quaternion.AngleAxis(frontRight_frontLeft_SensorAngle, transform.up) * transform.forward, out hit, frontRight_frontLeft_SensorLength) || Physics.Raycast(gameObject_FL.transform.position, Quaternion.AngleAxis(-frontRight_frontLeft_SensorAngle, transform.up) * transform.forward, out hit, frontRight_frontLeft_SensorLength))
+                    {
+                        // front right sensor
+                        if (Physics.Raycast(gameObject_FR.transform.position, Quaternion.AngleAxis(frontRight_frontLeft_SensorAngle, transform.up) * transform.forward, out hit, frontRight_frontLeft_SensorLength) && !hit.collider.CompareTag("Terrain"))
+                        {
+
+                            Debug.DrawLine(gameObject_FR.transform.position, hit.point);
+                            avoiding = true;
+                            if (isBraking)
+                            {
+                                avoidMultiplier += 0.5f;
+                            }
+                            else
+                            {
+                                avoidMultiplier -= 0.5f;
+                            }
+                        }
+                        // front left sensor
+                        else if (Physics.Raycast(gameObject_FL.transform.position, Quaternion.AngleAxis(-frontRight_frontLeft_SensorAngle, transform.up) * transform.forward, out hit, frontRight_frontLeft_SensorLength) && !hit.collider.CompareTag("Terrain"))
+                        {
+                            Debug.DrawLine(gameObject_FL.transform.position, hit.point);
+                            avoiding = true;
+                            if (isBraking)
+                            {
+                                avoidMultiplier -= 0.5f;
+                            }
+                            else
+                            {
+                                avoidMultiplier += 0.5f;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        isBraking = false;
+                    }
+                    // right sensor
+                    if(Physics.Raycast(gameObject_R.transform.position, Quaternion.AngleAxis(right_left_SensorAngle, transform.up) * transform.forward, out hit, right_left_SensorLength) && !hit.collider.CompareTag("Terrain"))
+                    {
+                        Debug.DrawLine(gameObject_R.transform.position, hit.point);
+                        avoiding = true;
+                        avoidMultiplier -= 0.25f;
+                    }
+                    else if(Physics.Raycast(gameObject_L.transform.position, Quaternion.AngleAxis(-right_left_SensorAngle, transform.up) * transform.forward, out hit, right_left_SensorLength) && !hit.collider.CompareTag("Terrain"))
+                    {
+                        Debug.DrawLine(gameObject_L.transform.position, hit.point);
+                        avoiding = true;
+                        avoidMultiplier += 0.25f;
+                    }
+                    break;
+                }
+                    
         }
+
+       
+            
+                
+        
 
         if (avoiding) 
         {
@@ -181,6 +423,8 @@ public class CarEngine : MonoBehaviour {
         Vector3 relativeVector = transform.InverseTransformPoint(nodes[currectNode].position);
         float newSteer = (relativeVector.x / relativeVector.magnitude) * maxSteerAngle;
         targetSteerAngle = newSteer;
+
+        front_wheel_rotation();
     }
 
     private void Drive() 
@@ -194,8 +438,8 @@ public class CarEngine : MonoBehaviour {
         } 
         else 
         {
-            wheelFL.motorTorque = 0;
-            wheelFR.motorTorque = 0;
+            wheelFL.motorTorque = -maxMotorTorque;
+            wheelFR.motorTorque = -maxMotorTorque;
         }
     }
 
@@ -219,19 +463,41 @@ public class CarEngine : MonoBehaviour {
         if (isBraking) 
         {
             //carRenderer.material.mainTexture = textureBraking;
-            wheelRL.brakeTorque = maxBrakeTorque;
-            wheelRR.brakeTorque = maxBrakeTorque;
+            wheelBL.brakeTorque = maxBrakeTorque;
+            wheelBR.brakeTorque = maxBrakeTorque;
         } 
         else 
         {
             //carRenderer.material.mainTexture = textureNormal;
-            wheelRL.brakeTorque = 0;
-            wheelRR.brakeTorque = 0;
+            wheelBL.brakeTorque = 0;
+            wheelBR.brakeTorque = 0;
         }
     }
     private void LerpToSteerAngle() 
     {
         wheelFL.steerAngle = Mathf.Lerp(wheelFL.steerAngle, targetSteerAngle, Time.deltaTime * turnSpeed);
         wheelFR.steerAngle = Mathf.Lerp(wheelFR.steerAngle, targetSteerAngle, Time.deltaTime * turnSpeed);
+    }
+    private void front_wheel_rotation()
+    {
+        var pos = Vector3.zero;
+        var rot = Quaternion.identity;
+
+        wheelFL.GetWorldPose(out pos, out rot);
+        wheelFL_transform.position = pos;
+        wheelFL_transform.rotation = rot;
+
+        wheelFR.GetWorldPose(out pos, out rot);
+        wheelFR_transform.position = pos;
+        wheelFR_transform.rotation = rot * Quaternion.Euler(0, 180, 0);
+
+        wheelBL.GetWorldPose(out pos, out rot);
+        wheelBL_transform.position = pos;
+        wheelBL_transform.rotation = rot;
+
+        wheelBR.GetWorldPose(out pos, out rot);
+        wheelBR_transform.position = pos;
+        wheelBR_transform.rotation = rot * Quaternion.Euler(0, 180, 0);
+
     }
 }

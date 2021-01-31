@@ -6,7 +6,7 @@ public class path : MonoBehaviour
 {
 
     public Color lineColor;
-
+    public bool repeating;
     private List<Transform> nodes = new List<Transform>();
 
     void OnDrawGizmos() 
@@ -32,7 +32,8 @@ public class path : MonoBehaviour
             if (i > 0) 
             {
                 previousNode = nodes[i - 1].position;
-            } else if(i == 0 && nodes.Count > 1) 
+            } 
+            else if(i == 0 && nodes.Count > 1) 
             {
                 previousNode = nodes[nodes.Count - 1].position;
             }

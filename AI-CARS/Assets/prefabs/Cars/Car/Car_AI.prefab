@@ -775,7 +775,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3109528569020985561}
-  m_LocalRotation: {x: -0, y: -0.66531885, z: -0, w: -0.7465593}
+  m_LocalRotation: {x: -0, y: -0.66532177, z: 0, w: -0.74655676}
   m_LocalPosition: {x: -210.4, y: 3.28, z: 160.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -860,26 +860,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: {fileID: 0}
-  maxSteerAngle: 45
-  turnSpeed: 5
   wheelFL: {fileID: 1558471202002703295}
   wheelFR: {fileID: 1558471203156324458}
-  wheelRL: {fileID: 1558471202626126991}
-  wheelRR: {fileID: 1558471201818723010}
+  wheelBL: {fileID: 1558471202626126991}
+  wheelBR: {fileID: 1558471201818723010}
+  wheelFL_transform: {fileID: 3659582744171756332}
+  wheelFR_transform: {fileID: 8563054245338023290}
+  wheelBL_transform: {fileID: 4094170563720512374}
+  wheelBR_transform: {fileID: 8590211375078198918}
   maxMotorTorque: 300
   maxBrakeTorque: 150
-  currentSpeed: 0
   maxSpeed: 45
-  centerOfMass: {x: 0, y: 0, z: 0}
+  currentSpeed: 0
+  maxSteerAngle: 45
+  turnSpeed: 5
   isBraking: 0
-  textureNormal: {fileID: 0}
-  textureBraking: {fileID: 0}
-  carRenderer: {fileID: 0}
   frontSensorLength: 35
   frontRight_frontLeft_SensorLength: 20
   right_left_SensorLength: 10
   frontRight_frontLeft_SensorAngle: 10
   right_left_SensorAngle: 80
+  avoiding: 0
+  avoidMultiplier: 0
   gameObject_F: {fileID: 4862913605343434599}
   gameObject_F1R: {fileID: 1518855017013984950}
   gameObject_F1L: {fileID: 2751163208935726305}
@@ -890,8 +892,10 @@ MonoBehaviour:
   gameObject_BL: {fileID: 9214103537306887469}
   gameObject_R: {fileID: 640275522760575468}
   gameObject_L: {fileID: 1655148123812085078}
-  avoiding: 0
-  avoidMultiplier: 0
+  centerOfMass: {x: 0, y: 0, z: 0}
+  textureNormal: {fileID: 0}
+  textureBraking: {fileID: 0}
+  carRenderer: {fileID: 0}
 --- !u!1 &3625033571708510375
 GameObject:
   m_ObjectHideFlags: 0
