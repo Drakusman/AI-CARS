@@ -2,10 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class CarEngine : MonoBehaviour {
-    [Header("Path object")]
-    public Transform path;
-    
+public class CarEngine : MonoBehaviour 
+{
+    [Header("Path start/end points")]
+    public GameObject start;
+    public GameObject end;
+
+    public bool spawnSet = false;
+    public List<Transform> pathTransforms = new List<Transform>();
+
     [Header("Wheel Colliders")]
     public WheelCollider wheelFL;
     public WheelCollider wheelFR;
@@ -55,35 +60,46 @@ public class CarEngine : MonoBehaviour {
     public Texture2D textureNormal;
     public Texture2D textureBraking;
     public Renderer carRenderer;
-    
+
+    public point.Direction direction; // direction of car when spawn
+
     private List<Transform> nodes;
     private int currectNode = 0;
     private float targetSteerAngle = 0;
     
     private void Start() 
     {
+        
         GetComponent<Rigidbody>().centerOfMass = centerOfMass;
 
-        Transform[] pathTransforms = path.GetComponentsInChildren<Transform>();
         nodes = new List<Transform>();
-
-        for (int i = 0; i < pathTransforms.Length; i++) 
+        for (int i = 0; i < pathTransforms.Count; i++)
         {
-            if (pathTransforms[i] != path.transform) 
-            {
-                nodes.Add(pathTransforms[i]);
-            }
+            print(pathTransforms[i].name);
         }
+        for (int i = 0; i < pathTransforms.Count; i++) 
+        {  
+            nodes.Add(pathTransforms[i]);
+        }
+       
     }
 
     private void FixedUpdate() 
     {
-        Sensors();
-        ApplySteer();
-        Drive();
-        CheckWaypointDistance();
-        //Braking();
-        LerpToSteerAngle();
+        if(spawnSet)
+        {
+            if (Vector3.Distance(transform.position, end.transform.position) < 5f)
+            {
+                Destroy(gameObject);
+            }
+            Sensors();
+            ApplySteer();
+            Drive();
+            CheckWaypointDistance();
+            //Braking();
+            LerpToSteerAngle();
+        }
+        
     }
 
     private void Sensors() 
@@ -445,7 +461,7 @@ public class CarEngine : MonoBehaviour {
 
     private void CheckWaypointDistance() 
     {
-        if (Vector3.Distance(transform.position, nodes[currectNode].position) < 3f) 
+        if (Vector3.Distance(transform.position, nodes[currectNode].position) < 5f) 
         {
             if (currectNode == nodes.Count - 1) 
             {
@@ -498,6 +514,24 @@ public class CarEngine : MonoBehaviour {
         wheelBR.GetWorldPose(out pos, out rot);
         wheelBR_transform.position = pos;
         wheelBR_transform.rotation = rot * Quaternion.Euler(0, 180, 0);
+
+    }
+    private void OnDrawGizmosSelected()
+    {
+        //draw start and end point of selected car
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(start.transform.position, 5f);
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(end.transform.position, 5f);
+
+
+        //draw line of all points
+        Gizmos.color = Color.cyan;
+        for (int i = 0; i < pathTransforms.Count-1; i++)
+        {
+                Gizmos.DrawLine(pathTransforms[i].position, pathTransforms[i + 1].position);
+            
+        }
 
     }
 }
