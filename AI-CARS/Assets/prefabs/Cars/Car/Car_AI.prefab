@@ -859,7 +859,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d2c7f6d107dcb4b8ed2d30d8b90c5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: {fileID: 0}
+  start: {fileID: 0}
+  end: {fileID: 0}
+  spawnSet: 0
+  pathTransforms: []
   wheelFL: {fileID: 1558471202002703295}
   wheelFR: {fileID: 1558471203156324458}
   wheelBL: {fileID: 1558471202626126991}
@@ -896,6 +899,7 @@ MonoBehaviour:
   textureNormal: {fileID: 0}
   textureBraking: {fileID: 0}
   carRenderer: {fileID: 0}
+  direction: 0
 --- !u!1 &3625033571708510375
 GameObject:
   m_ObjectHideFlags: 0

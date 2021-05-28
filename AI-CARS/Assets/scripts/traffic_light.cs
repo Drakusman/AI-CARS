@@ -42,7 +42,6 @@ public class traffic_light : MonoBehaviour
             case LightColor.green:
                 {
                     green.GetComponent<Renderer>().material.color = Color.green;
-
                     yellow.GetComponent<Renderer>().material.color = Color.white;
                     red.GetComponent<Renderer>().material.color = Color.white;
                     break;

@@ -17,6 +17,7 @@ public class point : MonoBehaviour
     [Header("Auto Set")]
     public bool turn = false;
     public bool returnPossible = false;
+    public bool blocked = false;
 
     [Header("List of all connected points")]
     public List<Transform> turnList = new List<Transform>();
@@ -38,25 +39,32 @@ public class point : MonoBehaviour
         }
         catch(Exception ex1)
         {
-            try
-            {
-                turnList.Add(turnPoint2);
-            }
-            catch(Exception ex2)
-            {
-                try
-                {
-                    turnList.Add(turnPoint3);
-                }
-                catch(Exception ex3)
-                {
-
-                }
-            }
+           
         }
-        if(returnPossible)
+        try
         {
+            turnList.Add(turnPoint2);
+        }
+        catch (Exception ex2)
+        {
+           
+        }
+        try
+        {
+            turnList.Add(turnPoint3);
+        }
+        catch (Exception ex3)
+        {
+
+        }
+        if (returnPoint!=null)
+        {
+            returnPossible = true;
             turnList.Add(returnPoint);
+        }
+        else
+        {
+            returnPossible = false;
         }
         
     }

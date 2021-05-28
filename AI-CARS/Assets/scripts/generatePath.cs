@@ -10,7 +10,7 @@ public class generatePath
         List<Transform> path = new List<Transform>();
         path.Add(start.transform);  //add start point   
         GameObject point = start;
-        int safe_breaker = 10000;
+        int safe_breaker = 500;
         int counter = 0;
         while (true)
         {
@@ -18,21 +18,27 @@ public class generatePath
             {
                 Debug.LogError("Couldn't set path!!!");
                 path = new List<Transform>();
-                path.Add(start.transform);
+                path.Clear();
                 break;
             }
-            
+
             Debug.Log(point.name);
             if (point == end)//check if next is end point
             {
                 path.Add(end.transform);
+                counter++;
                 break;
             }
-            if (point.GetComponent<point>().turn && point.GetComponent<point>().turnList.Count > 0 && point.GetComponent<point>().turnList[0] != null && point.GetComponent<point>().returnPossible)  //check if turn or return
+            if (Vector3.Distance(point.GetComponent<point>().next_point.transform.position, end.transform.position) < Vector3.Distance(point.GetComponent<point>().transform.position, end.transform.position))
+            {
+                path.Add(point.GetComponent<point>().next_point);
+                point = point.GetComponent<point>().next_point.gameObject;
+            }
+            else if (point.GetComponent<point>().turn && point.GetComponent<point>().turnList.Count > 0 && point.GetComponent<point>().returnPossible)  //check if turn or return
             {
                 for (int i = 0; i < point.GetComponent<point>().turnList.Count; i++) // check if turn is better then next
                 {
-                    if (Vector3.Distance(point.GetComponent<point>().turnList[i].transform.position, end.transform.position) < Vector3.Distance(point.transform.position, end.transform.position)) //check turn -> next
+                    if (point.GetComponent<point>().turnList[i] != null && point.GetComponent<point>().turn && Vector3.Distance(point.GetComponent<point>().turnList[i].transform.position, end.transform.position) < Vector3.Distance(point.transform.position, end.transform.position)) //check turn -> next
                     {
                         if (Vector3.Distance(point.GetComponent<point>().turnList[i].transform.position, end.transform.position) > Vector3.Distance(point.GetComponent<point>().returnPoint.transform.position, end.transform.position)) //check return -> turn
                         {
@@ -46,19 +52,21 @@ public class generatePath
                             path.Add(point.GetComponent<point>().turnList[i]);
                             point = point.GetComponent<point>().turnList[i].gameObject;
                         }
+                        counter++;
                         break;
                     }
                 }
             }
-            else if (point.GetComponent<point>().turn && point.GetComponent<point>().turnList.Count > 0 && point.GetComponent<point>().turnList[0]!=null)  //check if turn or return
+            else if (point.GetComponent<point>().turn && point.GetComponent<point>().turnList.Count > 0)  //check if turn or return
             {
                 for (int i = 0; i < point.GetComponent<point>().turnList.Count; i++) // check if turn is better then next
                 {
-                    if (Vector3.Distance(point.GetComponent<point>().turnList[i].transform.position, end.transform.position) < Vector3.Distance(point.transform.position, end.transform.position)) //check turn -> next
+                    if (point.GetComponent<point>().turnList[i] != null && Vector3.Distance(point.GetComponent<point>().turnList[i].transform.position, end.transform.position) < Vector3.Distance(point.transform.position, end.transform.position)) //check turn -> next
                     {
                         path.Add(point.transform);
                         path.Add(point.GetComponent<point>().turnList[i]);
                         point = point.GetComponent<point>().turnList[i].gameObject;
+                        counter++;
                         break;
                     }
                 }
@@ -71,9 +79,14 @@ public class generatePath
             }
             else
             {
-                path.Add(point.transform);
-                point = point.GetComponent<point>().next_point.gameObject; // set next point
+                path.Add(point.GetComponent<point>().next_point);
+                point = point.GetComponent<point>().next_point.gameObject;
             }
+
+            //if (point.GetComponent<point>().next_point != null)
+            //{
+            //    point = point.GetComponent<point>().next_point.gameObject; // set next point
+            //}//infinite loop here!
 
             counter++;
         }//while

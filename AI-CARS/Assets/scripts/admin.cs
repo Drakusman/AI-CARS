@@ -6,6 +6,7 @@ public class admin : MonoBehaviour
 {
     public List<Transform> all_spawn_points = new List<Transform>();
     public int numberToSpawn = 1;
+    public int numberOfSpawn = 0;
     void Start()
     {
         var tempArray = GameObject.FindGameObjectsWithTag("point"); // read all points
@@ -28,7 +29,15 @@ public class admin : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             int random = Random.Range(0, all_spawn_points.Count - 1);
-            GameObject car = (GameObject)Instantiate(Resources.Load("car"), all_spawn_points[random].position, Quaternion.identity);
+
+            Vector3 new_possition = all_spawn_points[random].position;
+            if(Physics.CheckSphere(new_possition, 3f))
+            {
+                amount++;
+                continue;
+            }
+            GameObject car = (GameObject)Instantiate(Resources.Load("car"), new_possition, Quaternion.identity);
+            numberOfSpawn++;
             car.GetComponent<CarEngine>().direction = all_spawn_points[random].gameObject.GetComponent<point>().direction;  // set direction of car when spawn
             car.GetComponent<CarEngine>().start = all_spawn_points[random].gameObject;
             while(true)
@@ -40,7 +49,16 @@ public class admin : MonoBehaviour
                 }
 
                 car.GetComponent<CarEngine>().end = all_spawn_points[random2].gameObject;
-                car.GetComponent<CarEngine>().pathTransforms = generatePath.find_path(all_spawn_points[random].gameObject, all_spawn_points[random2].gameObject);
+                List<Transform> list = new List<Transform>();
+                list = generatePath.find_path(all_spawn_points[random].gameObject, all_spawn_points[random2].gameObject);
+
+                if(list.Count==0)
+                {
+                    Destroy(car);
+                    numberOfSpawn--;
+                    break;
+                }
+                car.GetComponent<CarEngine>().pathTransforms = list;
                 car.GetComponent<CarEngine>().spawnSet = true;
                 break;
             }
