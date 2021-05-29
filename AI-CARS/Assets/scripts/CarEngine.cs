@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class CarEngine : MonoBehaviour 
+public class CarEngine : MonoBehaviour
 {
     [Header("Path start/end points")]
     public GameObject start;
@@ -66,10 +66,10 @@ public class CarEngine : MonoBehaviour
     private List<Transform> nodes;
     private int currectNode = 0;
     private float targetSteerAngle = 0;
-    
-    private void Start() 
+
+    private void Start()
     {
-        
+
         GetComponent<Rigidbody>().centerOfMass = centerOfMass;
 
         nodes = new List<Transform>();
@@ -77,16 +77,16 @@ public class CarEngine : MonoBehaviour
         {
             print(pathTransforms[i].name);
         }
-        for (int i = 0; i < pathTransforms.Count; i++) 
-        {  
+        for (int i = 0; i < pathTransforms.Count; i++)
+        {
             nodes.Add(pathTransforms[i]);
         }
-       
+
     }
 
-    private void FixedUpdate() 
+    private void FixedUpdate()
     {
-        if(spawnSet)
+        if (spawnSet)
         {
             if (Vector3.Distance(transform.position, end.transform.position) < 5f)
             {
@@ -99,19 +99,19 @@ public class CarEngine : MonoBehaviour
             //Braking();
             LerpToSteerAngle();
         }
-        
+
     }
 
-    private void Sensors() 
+    private void Sensors()
     {
         RaycastHit hit;
 
-        int angle_min = 120, angle_max=270;
+        int angle_min = 120, angle_max = 270;
         float angle_fix = transform.localRotation.eulerAngles.y;
         //variable that fixs dodge depends of rotation of car
         print(angle_fix);
         bool angle_rotation_fix;//r>90 and r<270 true -> else false
-        if (angle_fix>= angle_min && angle_fix<= angle_max)
+        if (angle_fix >= angle_min && angle_fix <= angle_max)
         {
             angle_rotation_fix = true;
         }
@@ -122,7 +122,7 @@ public class CarEngine : MonoBehaviour
         avoidMultiplier = 0;
         avoiding = false;
 
-       
+
 
         switch (isBraking)
         {
@@ -137,7 +137,7 @@ public class CarEngine : MonoBehaviour
                         //dodge depends where raycast hit.
                         if (hit.transform.position.x < hit.point.x)
                         {
-                            if(angle_rotation_fix)
+                            if (angle_rotation_fix)
                             {
                                 avoidMultiplier += 1;
                             }
@@ -145,7 +145,7 @@ public class CarEngine : MonoBehaviour
                             {
                                 avoidMultiplier -= 1;
                             }
-                            
+
                         }
                         else
                         {
@@ -248,7 +248,7 @@ public class CarEngine : MonoBehaviour
                     {
                         isBraking = false;
                     }
-                   
+
                     break;
                 }
             case false:
@@ -404,13 +404,13 @@ public class CarEngine : MonoBehaviour
                         isBraking = false;
                     }
                     // right sensor
-                    if(Physics.Raycast(gameObject_R.transform.position, Quaternion.AngleAxis(right_left_SensorAngle, transform.up) * transform.forward, out hit, right_left_SensorLength) && !hit.collider.CompareTag("Terrain"))
+                    if (Physics.Raycast(gameObject_R.transform.position, Quaternion.AngleAxis(right_left_SensorAngle, transform.up) * transform.forward, out hit, right_left_SensorLength) && !hit.collider.CompareTag("Terrain"))
                     {
                         Debug.DrawLine(gameObject_R.transform.position, hit.point);
                         avoiding = true;
                         avoidMultiplier -= 0.25f;
                     }
-                    else if(Physics.Raycast(gameObject_L.transform.position, Quaternion.AngleAxis(-right_left_SensorAngle, transform.up) * transform.forward, out hit, right_left_SensorLength) && !hit.collider.CompareTag("Terrain"))
+                    else if (Physics.Raycast(gameObject_L.transform.position, Quaternion.AngleAxis(-right_left_SensorAngle, transform.up) * transform.forward, out hit, right_left_SensorLength) && !hit.collider.CompareTag("Terrain"))
                     {
                         Debug.DrawLine(gameObject_L.transform.position, hit.point);
                         avoiding = true;
@@ -418,22 +418,17 @@ public class CarEngine : MonoBehaviour
                     }
                     break;
                 }
-                    
+
         }
 
-       
-            
-                
-        
-
-        if (avoiding) 
+        if (avoiding)
         {
             targetSteerAngle = maxSteerAngle * avoidMultiplier;
         }
 
     }
 
-    private void ApplySteer() 
+    private void ApplySteer()
     {
         if (avoiding) return;
         Vector3 relativeVector = transform.InverseTransformPoint(nodes[currectNode].position);
@@ -443,53 +438,53 @@ public class CarEngine : MonoBehaviour
         front_wheel_rotation();
     }
 
-    private void Drive() 
+    private void Drive()
     {
         currentSpeed = 2 * Mathf.PI * wheelFL.radius * wheelFL.rpm * 60 / 1000;
 
-        if (currentSpeed < maxSpeed && !isBraking) 
+        if (currentSpeed < maxSpeed && !isBraking)
         {
             wheelFL.motorTorque = maxMotorTorque;
             wheelFR.motorTorque = maxMotorTorque;
-        } 
-        else 
+        }
+        else
         {
             wheelFL.motorTorque = -maxMotorTorque;
             wheelFR.motorTorque = -maxMotorTorque;
         }
     }
 
-    private void CheckWaypointDistance() 
+    private void CheckWaypointDistance()
     {
-        if (Vector3.Distance(transform.position, nodes[currectNode].position) < 5f) 
+        if (Vector3.Distance(transform.position, nodes[currectNode].position) < 5f)
         {
-            if (currectNode == nodes.Count - 1) 
+            if (currectNode == nodes.Count - 1)
             {
                 currectNode = 0;
-            } 
-            else 
+            }
+            else
             {
                 currectNode++;
             }
         }
     }
 
-    private void Braking() 
+    private void Braking()
     {
-        if (isBraking) 
+        if (isBraking)
         {
             //carRenderer.material.mainTexture = textureBraking;
             wheelBL.brakeTorque = maxBrakeTorque;
             wheelBR.brakeTorque = maxBrakeTorque;
-        } 
-        else 
+        }
+        else
         {
             //carRenderer.material.mainTexture = textureNormal;
             wheelBL.brakeTorque = 0;
             wheelBR.brakeTorque = 0;
         }
     }
-    private void LerpToSteerAngle() 
+    private void LerpToSteerAngle()
     {
         wheelFL.steerAngle = Mathf.Lerp(wheelFL.steerAngle, targetSteerAngle, Time.deltaTime * turnSpeed);
         wheelFR.steerAngle = Mathf.Lerp(wheelFR.steerAngle, targetSteerAngle, Time.deltaTime * turnSpeed);
@@ -527,10 +522,9 @@ public class CarEngine : MonoBehaviour
 
         //draw line of all points
         Gizmos.color = Color.cyan;
-        for (int i = 0; i < pathTransforms.Count-1; i++)
+        for (int i = 0; i < pathTransforms.Count - 1; i++)
         {
-                Gizmos.DrawLine(pathTransforms[i].position, pathTransforms[i + 1].position);
-            
+            Gizmos.DrawLine(pathTransforms[i].position, pathTransforms[i + 1].position);
         }
 
     }
