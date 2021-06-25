@@ -8,6 +8,7 @@ TagManager:
   - Terrain
   - ai_car
   - point
+  - traffic_light
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - AI
+  - light_sign
   - 
   - 
   - 

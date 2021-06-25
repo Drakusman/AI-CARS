@@ -1,8 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 
 public class cameraMovment : MonoBehaviour
 {
@@ -10,23 +15,31 @@ public class cameraMovment : MonoBehaviour
     public float scroll_speed = 5f;
     Ray ray;
     RaycastHit hit;
-    public GameObject button_speed2, button_speed1, button_pause;
+    public GameObject button_speed2, button_speed1, button_pause, button_end;
     private void Start()
     {
         button_speed2.GetComponent<Button>().onClick.AddListener(speed2);
         button_speed1.GetComponent<Button>().onClick.AddListener(speed1);
         button_pause.GetComponent<Button>().onClick.AddListener(pause);
+        button_end.GetComponent<Button>().onClick.AddListener(end);
     }
     void Update()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+
+
         if (Input.GetMouseButtonDown(0) && Physics.Raycast(ray, out hit) && hit.transform.gameObject.tag == "player")
         {
+#if UNITY_EDITOR
             Selection.activeObject = hit.transform.gameObject;
+#endif
         }
-        if(Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1))
         {
+#if UNITY_EDITOR
             Selection.activeObject = null;
+#endif
         }
         if (Input.GetMouseButton(2))
         {
@@ -59,5 +72,10 @@ public class cameraMovment : MonoBehaviour
     public void pause()
     {
         Time.timeScale = 0;
+    }
+    public void end()
+    {
+        login_system.currentUser = static_buffor.memo_user;
+        SceneManager.LoadScene(0);
     }
 }

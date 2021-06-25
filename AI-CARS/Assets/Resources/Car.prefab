@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &34004697346821365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3939591449291500197}
+  m_Layer: 8
+  m_Name: lights
+  m_TagString: ai_car
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3939591449291500197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34004697346821365}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4704270895815840306}
+  - {fileID: 194403358030194752}
+  m_Father: {fileID: 2124601826421129930}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &640275522760575468
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,9 +41,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8252434612119254170}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sensor_R
-  m_TagString: Untagged
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,9 +71,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6601947421799674187}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sensor_F1R
-  m_TagString: Untagged
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,9 +101,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1558471201756962460}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wheels
-  m_TagString: player
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,9 +136,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1558471201818723011}
   - component: {fileID: 1558471201818723010}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WheelColliderBR
-  m_TagString: player
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,9 +198,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1558471202002703280}
   - component: {fileID: 1558471202002703295}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WheelColliderFL
-  m_TagString: player
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -227,9 +259,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1558471202121390495}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Colliders
-  m_TagString: player
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -260,9 +292,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1558471202539319121}
   - component: {fileID: 1558471202539319120}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Top
-  m_TagString: player
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -304,9 +336,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1558471202626126976}
   - component: {fileID: 1558471202626126991}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WheelColliderBL
-  m_TagString: player
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -366,9 +398,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1558471203121055942}
   - component: {fileID: 1558471203121055941}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bottom
-  m_TagString: player
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -410,9 +442,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1558471203156324459}
   - component: {fileID: 1558471203156324458}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WheelColliderFR
-  m_TagString: player
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -474,9 +506,9 @@ GameObject:
   - component: {fileID: 3015702131914554784}
   - component: {fileID: 1242866353413723812}
   - component: {fileID: 6529145811400580032}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WheelFR
-  m_TagString: player
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -564,9 +596,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4344439696842195562}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sensor_L
-  m_TagString: Untagged
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -597,9 +629,9 @@ GameObject:
   - component: {fileID: 6090273480446000681}
   - component: {fileID: 7396909249329479655}
   - component: {fileID: 2630418951776526495}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WheelBR
-  m_TagString: player
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -687,9 +719,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 998452586084923005}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sensor_F2L
-  m_TagString: Untagged
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -717,9 +749,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 32412919535851058}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sensors
-  m_TagString: Untagged
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -761,9 +793,9 @@ GameObject:
   - component: {fileID: 6329361487243117884}
   - component: {fileID: 3590413691105085022}
   - component: {fileID: 9039382078051067520}
-  m_Layer: 0
-  m_Name: Car_AI
-  m_TagString: player
+  m_Layer: 8
+  m_Name: Car
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -775,16 +807,17 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3109528569020985561}
-  m_LocalRotation: {x: -0, y: -0.66532177, z: 0, w: -0.74655676}
-  m_LocalPosition: {x: -210.4, y: 3.28, z: 160.9}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1558471201756962460}
   - {fileID: 1558471202121390495}
   - {fileID: 32412919535851058}
+  - {fileID: 3939591449291500197}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -276.586, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5176354471114091212
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -859,7 +892,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d2c7f6d107dcb4b8ed2d30d8b90c5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: {fileID: 0}
+  start: {fileID: 0}
+  end: {fileID: 0}
+  spawnSet: 0
+  pathTransforms: []
   wheelFL: {fileID: 1558471202002703295}
   wheelFR: {fileID: 1558471203156324458}
   wheelBL: {fileID: 1558471202626126991}
@@ -872,9 +908,13 @@ MonoBehaviour:
   maxBrakeTorque: 150
   maxSpeed: 45
   currentSpeed: 0
+  current_MotorTorque: 0
+  current_BrakeTorque: 0
   maxSteerAngle: 45
   turnSpeed: 5
   isBraking: 0
+  car_detection: 0
+  traffic_detection: 0
   frontSensorLength: 35
   frontRight_frontLeft_SensorLength: 20
   right_left_SensorLength: 10
@@ -896,6 +936,11 @@ MonoBehaviour:
   textureNormal: {fileID: 0}
   textureBraking: {fileID: 0}
   carRenderer: {fileID: 0}
+  direction: 0
+  line: {fileID: 0}
+  start_point_gizmo: {fileID: 0}
+  end_point_gizmo: {fileID: 0}
+  time_to_red: 5
 --- !u!1 &3625033571708510375
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,9 +953,9 @@ GameObject:
   - component: {fileID: 7246325978529627710}
   - component: {fileID: 6494467400943891410}
   - component: {fileID: 3625033571708510374}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WheelBL
-  m_TagString: player
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1001,9 +1046,9 @@ GameObject:
   - component: {fileID: 6857065479543869822}
   - component: {fileID: 4070807700683099335}
   - component: {fileID: 3934281660640926836}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WheelFL
-  m_TagString: player
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1091,9 +1136,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3856052935297044033}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sensor_B
-  m_TagString: Untagged
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1121,9 +1166,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5895254894567412106}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sensor_F
-  m_TagString: Untagged
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1142,6 +1187,97 @@ Transform:
   m_Father: {fileID: 32412919535851058}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5102195777980204806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 194403358030194752}
+  - component: {fileID: 5320164626430034305}
+  m_Layer: 8
+  m_Name: leftLight
+  m_TagString: ai_car
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &194403358030194752
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5102195777980204806}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.1, y: 0.73, z: 4.21}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3939591449291500197}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!108 &5320164626430034305
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5102195777980204806}
+  m_Enabled: 1
+  serializedVersion: 9
+  m_Type: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 10
+  m_Range: 20
+  m_SpotAngle: 45
+  m_InnerSpotAngle: 4
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 3
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &5300776436357019583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,9 +1287,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6655608986816521647}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sensor_BR
-  m_TagString: Untagged
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1181,9 +1317,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4338165854908545673}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sensor_FL
-  m_TagString: Untagged
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1211,9 +1347,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1848173485734642647}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sensor_FR
-  m_TagString: Untagged
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1232,6 +1368,97 @@ Transform:
   m_Father: {fileID: 32412919535851058}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7638449149699571783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4704270895815840306}
+  - component: {fileID: 8891637604689493529}
+  m_Layer: 8
+  m_Name: rightLight
+  m_TagString: ai_car
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4704270895815840306
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7638449149699571783}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.11, y: 0.73, z: 4.21}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3939591449291500197}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!108 &8891637604689493529
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7638449149699571783}
+  m_Enabled: 1
+  serializedVersion: 9
+  m_Type: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 10
+  m_Range: 20
+  m_SpotAngle: 45
+  m_InnerSpotAngle: 4
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 3
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &9214103537306887469
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,9 +1468,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 523932957091156570}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sensor_BL
-  m_TagString: Untagged
+  m_TagString: ai_car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -22,7 +22,6 @@ public class generatePath
                 break;
             }
 
-            Debug.Log(point.name);
             if (point == end)//check if next is end point
             {
                 path.Add(end.transform);

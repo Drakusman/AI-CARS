@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 08ed45a7e71a425428a67918e647a764, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -135,7 +135,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 08ed45a7e71a425428a67918e647a764, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 8296172667438738657}
   m_Layer: 0
   m_Name: traffic_lights
-  m_TagString: Untagged
+  m_TagString: traffic_light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -393,9 +393,11 @@ MonoBehaviour:
   yellow: {fileID: 3441066071368224630}
   green: {fileID: 7306597512829633518}
   lightColor: 2
-  greenTime: 5
-  yellowTime: 1
-  redTime: 5
+  greenTime: 15
+  yellowTime: 3
+  redTime: 15
+  to_red: 0
+  traffic_Pair: 0
 --- !u!65 &8296172667438738657
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -466,7 +468,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 08ed45a7e71a425428a67918e647a764, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

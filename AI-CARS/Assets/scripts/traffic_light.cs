@@ -18,22 +18,35 @@ public class traffic_light : MonoBehaviour
     public int greenTime;
     public int yellowTime;
     public int redTime;
+    public float to_red = 0;
 
+    public crossRoad.Traffic_Pair traffic_Pair;
 
     bool change = true;
-    // Start is called before the first frame update
+    
     void Start()
     {
-        
+        to_red = greenTime + 2 * yellowTime;
+        traffic_Pair = crossRoad.Traffic_Pair.green_red;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        to_red -= Time.deltaTime;
         if(change)
         {
             change = false;
-            StartCoroutine(changeLight());
+            if(traffic_Pair == crossRoad.Traffic_Pair.green_red)
+            {
+                StopCoroutine(changeLight_red());
+                StartCoroutine(changeLight_green());
+            }
+            if (traffic_Pair == crossRoad.Traffic_Pair.red_green)
+            {
+                StopCoroutine(changeLight_green());
+                StartCoroutine(changeLight_red());
+            }
+
         }
         
 
@@ -60,6 +73,7 @@ public class traffic_light : MonoBehaviour
 
                     yellow.GetComponent<Renderer>().material.color = Color.white;
                     green.GetComponent<Renderer>().material.color = Color.white;
+                    to_red = greenTime + 2 * yellowTime;
                     break;
                 }
         }
@@ -75,7 +89,7 @@ public class traffic_light : MonoBehaviour
             print("That was close!");
         }
     }
-    IEnumerator changeLight()
+    public IEnumerator changeLight_green()
     {
         lightColor = LightColor.green;
         yield return new WaitForSeconds(greenTime);
@@ -83,6 +97,18 @@ public class traffic_light : MonoBehaviour
         yield return new WaitForSeconds(yellowTime);
         lightColor = LightColor.red;
         yield return new WaitForSeconds(redTime);
+        lightColor = LightColor.yellow;
+        yield return new WaitForSeconds(yellowTime);
+        change = true;
+    }
+    public IEnumerator changeLight_red()
+    {
+        lightColor = LightColor.red;
+        yield return new WaitForSeconds(redTime);
+        lightColor = LightColor.yellow;
+        yield return new WaitForSeconds(yellowTime);
+        lightColor = LightColor.green;
+        yield return new WaitForSeconds(greenTime);
         lightColor = LightColor.yellow;
         yield return new WaitForSeconds(yellowTime);
         change = true;
