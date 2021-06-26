@@ -22,8 +22,6 @@ public  class User
 
     //all progress data
     public bool quiz_pass = false;
-    //list of all incorrect answered questions - for retesting
-    public List<Question> questionBank = new List<Question>();
     public float distance_traveled = 0f;
 
     public User(string name,string surname,string email, int age, Gender gender)

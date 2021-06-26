@@ -1,21 +1,11 @@
-﻿/* 
-    ------------------- Code Monkey -------------------
-
-    Thank you for downloading this package
-    I hope you find it useful in your projects
-    If you have any questions let me know
-    Cheers!
-
-               unitycodemonkey.com
-    --------------------------------------------------
- */
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Speedometer : MonoBehaviour {
+public class Speedometer : MonoBehaviour 
+{
+    public car player;
 
     private const float MAX_SPEED_ANGLE = -20;
     private const float ZERO_SPEED_ANGLE = 230;
@@ -26,7 +16,8 @@ public class Speedometer : MonoBehaviour {
     private float speedMax;
     private float speed;
 
-    private void Awake() {
+    private void Awake() 
+    {
         needleTranform = transform.Find("needle");
         speedLabelTemplateTransform = transform.Find("speedLabelTemplate");
         speedLabelTemplateTransform.gameObject.SetActive(false);
@@ -36,38 +27,34 @@ public class Speedometer : MonoBehaviour {
 
         CreateSpeedLabels();
     }
-
-    private void Update() {
-        HandlePlayerInput();
-
-        //speed += 30f * Time.deltaTime;
-        //if (speed > speedMax) speed = speedMax;
-
-        needleTranform.eulerAngles = new Vector3(0, 0, GetSpeedRotation());
+    private void Start()
+    {
+        if(GameObject.Find("Car_player"))
+        {
+            GameObject car_player = GameObject.Find("Car_player");
+            player = car_player.GetComponent<car>();
+        }
+        else
+        {
+            Debug.LogError("Can't find object with Player tag! Make sure that player exists on map!");
+        }
+           
+       
+       
     }
 
-    private void HandlePlayerInput() {
-        if (Input.GetKey(KeyCode.UpArrow)) {
-            float acceleration = 80f;
-            speed += acceleration * Time.deltaTime;
-        } else {
-            float deceleration = 20f;
-            speed -= deceleration * Time.deltaTime;
-        }
-
-        if (Input.GetKey(KeyCode.DownArrow)) {
-            float brakeSpeed = 100f;
-            speed -= brakeSpeed * Time.deltaTime;
-        }
-
-        speed = Mathf.Clamp(speed, 0f, speedMax);
+    private void Update() 
+    {
+        needleTranform.eulerAngles = new Vector3(0, 0, GetSpeedRotation(player.speed,player.maxSpeed));
     }
 
-    private void CreateSpeedLabels() {
+    private void CreateSpeedLabels() 
+    {
         int labelAmount = 10;
         float totalAngleSize = ZERO_SPEED_ANGLE - MAX_SPEED_ANGLE;
 
-        for (int i = 0; i <= labelAmount; i++) {
+        for (int i = 0; i <= labelAmount; i++) 
+        {
             Transform speedLabelTransform = Instantiate(speedLabelTemplateTransform, transform);
             float labelSpeedNormalized = (float)i / labelAmount;
             float speedLabelAngle = ZERO_SPEED_ANGLE - labelSpeedNormalized * totalAngleSize;
@@ -80,7 +67,9 @@ public class Speedometer : MonoBehaviour {
         needleTranform.SetAsLastSibling();
     }
 
-    private float GetSpeedRotation() {
+    private float GetSpeedRotation(float player_speed, float player_speed_max) 
+    {
+        speed = Mathf.Clamp(player_speed, 0f, 200f);
         float totalAngleSize = ZERO_SPEED_ANGLE - MAX_SPEED_ANGLE;
 
         float speedNormalized = speed / speedMax;

@@ -81,14 +81,8 @@ public class generatePath
                 path.Add(point.GetComponent<point>().next_point);
                 point = point.GetComponent<point>().next_point.gameObject;
             }
-
-            //if (point.GetComponent<point>().next_point != null)
-            //{
-            //    point = point.GetComponent<point>().next_point.gameObject; // set next point
-            //}//infinite loop here!
-
             counter++;
-        }//while
+        }
         return path;
     }
 }
