@@ -1,1 +1,0 @@
-there is a issue with ray lenght of 4 diagonal rays frontleft etc... in raycasts.cs in showRaycast methode. - fixed by setting lenght of ray to vector magnitude
