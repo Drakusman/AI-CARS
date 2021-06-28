@@ -4857,6 +4857,7 @@ GameObject:
   - component: {fileID: 3491987984912385315}
   - component: {fileID: 348721546057145999}
   - component: {fileID: 500027435824673325}
+  - component: {fileID: 9127982473048259022}
   m_Layer: 0
   m_Name: circle
   m_TagString: Terrain
@@ -14690,6 +14691,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 10
   m_Center: {x: -10, y: -0.000000029802322, z: 0}
+--- !u!114 &9127982473048259022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4165159578002043682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e201cfa94a11a044ba5e2d5a9f60f2a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6156957903357673747
 GameObject:
   m_ObjectHideFlags: 0
@@ -14699,7 +14712,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4532657088540899122}
-  - component: {fileID: 1581661794939387780}
   m_Layer: 0
   m_Name: checkpoint
   m_TagString: Terrain
@@ -14724,15 +14736,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1581661794939387780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6156957903357673747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e201cfa94a11a044ba5e2d5a9f60f2a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

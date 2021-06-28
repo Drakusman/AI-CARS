@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/exam.unity
     guid: 0631435ba71dfd94fb07820ba148df3a
+  - enabled: 1
+    path: Assets/Scenes/player_test1.unity
+    guid: af5f82389f531eb4c9cceba45a5f0bb3
+  - enabled: 1
+    path: Assets/Scenes/Map_Easy.unity
+    guid: 9389a3c90af61064085dfcb1a299f818
+  - enabled: 1
+    path: Assets/Scenes/AI/AI-test_collision.unity
+    guid: 8246eb09dba530f4ba3f6c24d0d90b94
   m_configObjects: {}

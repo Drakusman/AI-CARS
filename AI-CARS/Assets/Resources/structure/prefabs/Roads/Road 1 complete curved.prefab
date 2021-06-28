@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5112558264355997360}
   - component: {fileID: 3951474212760361346}
   - component: {fileID: 6810401069343444720}
+  - component: {fileID: 4806207332567438450}
   m_Layer: 0
   m_Name: Cube.004
   m_TagString: Untagged
@@ -80,6 +81,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4806207332567438450
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775076517051236179}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0015662, y: 6.4178896, z: 382.41812}
+  m_Center: {x: -0.015667066, y: 11.975029, z: 392.56073}
 --- !u!1 &2330075873170545401
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,6 +105,7 @@ GameObject:
   - component: {fileID: 6066837753573663335}
   - component: {fileID: 3776747251106150021}
   - component: {fileID: 8758315678807285061}
+  - component: {fileID: 1976057166452750330}
   m_Layer: 0
   m_Name: Cube.006
   m_TagString: Untagged
@@ -158,6 +173,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1976057166452750330
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2330075873170545401}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0000074, y: 2.0000005, z: 2.0000005}
+  m_Center: {x: 0, y: -0.000030517578, z: -0.000015258789}
 --- !u!1 &6024199296002219990
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,6 +197,7 @@ GameObject:
   - component: {fileID: 7505168822566286269}
   - component: {fileID: 4406078727034013193}
   - component: {fileID: 2053209883242009597}
+  - component: {fileID: 7366507106647540061}
   m_Layer: 0
   m_Name: Cube.001
   m_TagString: Untagged
@@ -238,6 +267,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &7366507106647540061
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6024199296002219990}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.001022, y: 8.181153, z: 222.94351}
+  m_Center: {x: -0.008176032, y: 18.764229, z: 373.61066}
 --- !u!1 &7030672753853196026
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,6 +326,7 @@ GameObject:
   - component: {fileID: 4097297956543402282}
   - component: {fileID: 7039568463237708170}
   - component: {fileID: 1928146415155398400}
+  - component: {fileID: 7928137482418095997}
   m_Layer: 0
   m_Name: Cube.003
   m_TagString: Untagged
@@ -353,6 +396,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &7928137482418095997
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7753660018291541558}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0016944, y: 5.1754045, z: 269.86023}
+  m_Center: {x: -0.008075656, y: 12.540106, z: 374.23767}
 --- !u!1 &8437751428555077882
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +420,7 @@ GameObject:
   - component: {fileID: 3466589479532184775}
   - component: {fileID: 6746558241112609100}
   - component: {fileID: 5478770774231827343}
+  - component: {fileID: 4251167454945513566}
   m_Layer: 0
   m_Name: Cube.002
   m_TagString: Untagged
@@ -433,3 +490,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4251167454945513566
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8437751428555077882}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0009415, y: 6.315277, z: 224.50949}
+  m_Center: {x: -0.0081413835, y: 21.496006, z: 373.40613}

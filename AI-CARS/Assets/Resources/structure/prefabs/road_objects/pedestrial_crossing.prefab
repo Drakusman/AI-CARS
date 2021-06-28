@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 935133456082192389}
   - component: {fileID: 8187900722647659059}
   - component: {fileID: 2494375409594404554}
-  m_Layer: 0
-  m_Name: Pedestrial crossing COMPLETE
+  m_Layer: 9
+  m_Name: pedestrial_crossing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

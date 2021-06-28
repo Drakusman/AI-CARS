@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4504999932761181283}
   - component: {fileID: 3145938220270222652}
   - component: {fileID: 1716878947016676397}
-  m_Layer: 0
+  - component: {fileID: 2425315228078335796}
+  m_Layer: 9
   m_Name: yield_sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,3 +81,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2425315228078335796
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7901235429903880133}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 5.833099, z: 0.09762813}
+  m_Center: {x: 0.05510337, y: 2.9156916, z: -0.003909156}

@@ -29,7 +29,7 @@ public class admin : MonoBehaviour
         spawn_cars(numberToSpawn);
     }
 
-  void spawn_cars(int amount)
+  public void spawn_cars(int amount)
     {
         for (int i = 0; i < amount; i++)
         {

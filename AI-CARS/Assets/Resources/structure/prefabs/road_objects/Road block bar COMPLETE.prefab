@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7572597769058848241}
   - component: {fileID: 1462617868085770183}
   - component: {fileID: 5147836857311021886}
-  m_Layer: 0
+  - component: {fileID: 9104841429463852137}
+  m_Layer: 9
   m_Name: Road block bar COMPLETE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,3 +81,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &9104841429463852137
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6866894680483561442}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.262004, y: 4.7068486, z: 39.946926}
+  m_Center: {x: -5.128077, y: -0.0028939247, z: -0.74866486}

@@ -11,7 +11,11 @@ GameObject:
   - component: {fileID: 24564784280159432}
   - component: {fileID: 9010650852055056126}
   - component: {fileID: 3328382633242788359}
-  m_Layer: 0
+  - component: {fileID: 89342185975711432}
+  - component: {fileID: 16827920491935402}
+  - component: {fileID: 2377588237709686486}
+  - component: {fileID: -2316964711526458809}
+  m_Layer: 9
   m_Name: Garage base 2 open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +32,8 @@ Transform:
   m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -450.85416, y: 187.10864, z: -280.71356}
   m_LocalScale: {x: 1.7910963, y: 3.7547214, z: 1.7910963}
-  m_Children: []
+  m_Children:
+  - {fileID: 8724715093412219812}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -78,3 +83,85 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &89342185975711432
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3894518918002652891}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1626875, y: -0.1, z: 3.3}
+  m_Center: {x: -1.0813438, y: -0.95, z: -0.1}
+--- !u!65 &16827920491935402
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3894518918002652891}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1626875, y: -0.1, z: 3.3}
+  m_Center: {x: -1.0813438, y: 0.95, z: -0.1}
+--- !u!65 &2377588237709686486
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3894518918002652891}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1626875, y: 2, z: 0.15}
+  m_Center: {x: -1.0813438, y: 0, z: 1.45}
+--- !u!65 &-2316964711526458809
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3894518918002652891}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 2, z: 3.5458312}
+  m_Center: {x: 0.09, y: 0, z: -0.0022959711}
+--- !u!1 &6809657500110293623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8724715093412219812}
+  m_Layer: 9
+  m_Name: parkingPoint
+  m_TagString: garage
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8724715093412219812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6809657500110293623}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.06, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 24564784280159432}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

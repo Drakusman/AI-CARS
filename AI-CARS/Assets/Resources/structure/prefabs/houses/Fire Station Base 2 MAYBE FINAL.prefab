@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6452149374733240990}
   - component: {fileID: 589029723239980343}
   - component: {fileID: 3835901847182445667}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Text.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 701752235911997924}
   - component: {fileID: 38051885936988964}
   - component: {fileID: 3371109708315465979}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Text.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 3557712517740096106}
   - component: {fileID: 914812276275421643}
   - component: {fileID: 8141293224492501296}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Text.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,8 @@ GameObject:
   - component: {fileID: 927642307632877809}
   - component: {fileID: 8179842578462272199}
   - component: {fileID: 2501795874683754046}
-  m_Layer: 0
+  - component: {fileID: 4081496877836681758}
+  m_Layer: 9
   m_Name: Fire Station Base 2 MAYBE FINAL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,6 +319,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4081496877836681758
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4216772346142401250}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.29941, y: 8.860273, z: 6.663741}
+  m_Center: {x: -2.1279335, y: 0.48800892, z: -0.54140407}
 --- !u!1 &5751319289527772928
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +343,7 @@ GameObject:
   - component: {fileID: 176644372583791812}
   - component: {fileID: 7230200825702538335}
   - component: {fileID: 5019497901317943987}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Text.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +421,7 @@ GameObject:
   - component: {fileID: 2203111080547904991}
   - component: {fileID: 5774722347146517192}
   - component: {fileID: 8268632874087295534}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +499,7 @@ GameObject:
   - component: {fileID: 2175819590958542654}
   - component: {fileID: 4925847787986419994}
   - component: {fileID: 3071507994580796582}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Text.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}

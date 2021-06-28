@@ -9,6 +9,8 @@ TagManager:
   - ai_car
   - point
   - traffic_light
+  - garage
+  - collision
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - 
   - AI
   - light_sign
-  - 
+  - terein
   - 
   - 
   - 

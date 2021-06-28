@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 8619779549378068168}
   - component: {fileID: 775918121722840318}
   - component: {fileID: 6482953658007812103}
-  m_Layer: 0
+  - component: {fileID: 1951482835707500751}
+  m_Layer: 9
   m_Name: Road pillar with blinker COMPLETE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1951482835707500751
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4739126065992944859}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2159498, y: 0.3, z: 0.3}
+  m_Center: {x: -1.080206, y: 0.00000017881393, z: -0.00000008940697}

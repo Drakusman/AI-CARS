@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 689010469038175677}
   - component: {fileID: 8418597565846818699}
   - component: {fileID: 2875641316569478002}
-  m_Layer: 0
+  - component: {fileID: 3626784079719404883}
+  m_Layer: 9
   m_Name: Lampa 4 final
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &3626784079719404883
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4599444631793256366}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.6683645, y: 2, z: 2}
+  m_Center: {x: -0.3341822, y: 0.039370537, z: 0.0000047683716}

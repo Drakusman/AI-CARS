@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3056094091563435648}
   - component: {fileID: 6283203028963048630}
   - component: {fileID: 292420298174349391}
-  m_Layer: 0
+  - component: {fileID: 3121626735727285747}
+  m_Layer: 9
   m_Name: Pacholek czarny
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &3121626735727285747
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031744357653673107}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1026757, y: 1.2, z: 1.2}
+  m_Center: {x: -1.0056502, y: 0.00000008940697, z: -0.000000059604645}

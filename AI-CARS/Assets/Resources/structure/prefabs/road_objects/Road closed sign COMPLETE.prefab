@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3767180363079426685}
   - component: {fileID: 5268279365613000779}
   - component: {fileID: 1882567595176617138}
-  m_Layer: 0
+  - component: {fileID: 3854323478070366966}
+  m_Layer: 9
   m_Name: Road closed sign COMPLETE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,3 +83,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &3854323478070366966
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152259598692896878}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 21.1, y: 28.1, z: 2.4564652}
+  m_Center: {x: 2.5484312, y: 0, z: -0.04603779}

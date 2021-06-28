@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4608676291437940347}
   - component: {fileID: 4804857104347395149}
   - component: {fileID: 1266287196615772340}
-  m_Layer: 0
+  - component: {fileID: 4274939039458453069}
+  m_Layer: 9
   m_Name: House base 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,6 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4274939039458453069
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697520778139843688}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.274702, y: 17.41581, z: 17.41581}
+  m_Center: {x: -15.2706785, y: 0.3853922, z: -5.964246}
 --- !u!1 &6356381343756269400
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +104,7 @@ GameObject:
   - component: {fileID: 1369671242640995861}
   - component: {fileID: 717104736117321307}
   - component: {fileID: 351874592068836325}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

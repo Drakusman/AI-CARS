@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5817082314680169489}
   - component: {fileID: 3306041475056848423}
   - component: {fileID: 9141711719934145246}
+  - component: {fileID: 1714679396677482671}
   m_Layer: 0
   m_Name: Road Double Arched slight
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7413263994529580546}
   m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -8433.141, y: 16645.795, z: -13915.499}
-  m_LocalScale: {x: 0.1, y: 25, z: 1}
+  m_LocalScale: {x: 1, y: 25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -80,3 +81,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1714679396677482671
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7413263994529580546}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0011597, y: 9.439903, z: 251.53421}
+  m_Center: {x: 0.6876068, y: 2.3501756, z: -104.136795}

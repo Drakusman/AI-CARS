@@ -54,7 +54,9 @@ public class mainMenu : MonoBehaviour
 
     [Header("Drive")]
     public GameObject drive;
-    public GameObject a;
+    public GameObject AI_drive_button;
+    public GameObject empty_button;
+    public GameObject drive_back_button;
 
     [Header("Theory")]
     public GameObject theory;
@@ -79,6 +81,7 @@ public class mainMenu : MonoBehaviour
     void Start()
     {
         #region login
+        show_login();
         login_button.GetComponent<Button>().onClick.AddListener(login_click);
         create_button.GetComponent<Button>().onClick.AddListener(create_click);
         exit_button_login.GetComponent<Button>().onClick.AddListener(exit_click);
@@ -103,6 +106,7 @@ public class mainMenu : MonoBehaviour
         #endregion;
 
         #region player
+        drive_button_player.GetComponent<Button>().onClick.AddListener(drive_button_player_click);
         theory_button_player.GetComponent<Button>().onClick.AddListener(start_theory);
         back_button_player.GetComponent<Button>().onClick.AddListener(back_player_click);
         #endregion
@@ -123,6 +127,12 @@ public class mainMenu : MonoBehaviour
         exam_button.GetComponent<Button>().onClick.AddListener(exam_button_click);
         theory_button_back.GetComponent<Button>().onClick.AddListener(theory_button_back_click);
         #endregion
+
+        #region Drive
+        AI_drive_button.GetComponent<Button>().onClick.AddListener(AI_drive_button_click);
+        empty_button.GetComponent<Button>().onClick.AddListener(empty_button_click);
+        drive_back_button.GetComponent<Button>().onClick.AddListener(drive_back_button_click);
+        #endregion
         //load previous user!!
         if (login_system.currentUser != null)
         {
@@ -131,7 +141,7 @@ public class mainMenu : MonoBehaviour
             show_main_menu();
         }
 
-        //if there is no loading back go normal modehej
+        //if there is no loading back go normal mode
 
     }
     #region login
@@ -424,6 +434,11 @@ public class mainMenu : MonoBehaviour
         hide_player();
         show_main_menu();
     }
+    void drive_button_player_click()
+    {
+        hide_player();
+        show_drive();
+    }
     #endregion
 
     #region settings
@@ -476,7 +491,7 @@ public class mainMenu : MonoBehaviour
     {
         hide_AI_test();
         static_buffor.memo_user = login_system.currentUser;
-        //SceneManager.LoadScene(2);
+        SceneManager.LoadScene(7);
     }
     void ai_test_traffic_click()
     {
@@ -518,6 +533,39 @@ public class mainMenu : MonoBehaviour
         hide_theory();
         show_player();
     }
+    #endregion
+
+    #region Drive
+    void show_drive()
+    {
+        drive.SetActive(true);
+        drive_back_button.SetActive(true);
+        AI_drive_button.SetActive(true);
+        empty_button.SetActive(true);
+    }
+    void hide_drive()
+    {
+        drive.SetActive(false);
+        drive_back_button.SetActive(false);
+        AI_drive_button.SetActive(false);
+        empty_button.SetActive(false);
+    }
+    void AI_drive_button_click()
+    {
+        static_buffor.memo_user = login_system.currentUser;
+        SceneManager.LoadScene(6);
+    }
+    void empty_button_click()
+    {
+        static_buffor.memo_user = login_system.currentUser;
+        SceneManager.LoadScene(5);
+    }
+    void drive_back_button_click()
+    {
+        hide_drive();
+        show_player();
+    }
+
     #endregion
     void exit_click()
     {

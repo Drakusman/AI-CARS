@@ -11,7 +11,11 @@ GameObject:
   - component: {fileID: 2315291837133520385}
   - component: {fileID: 6735862320837903415}
   - component: {fileID: 1028543086947514574}
-  m_Layer: 0
+  - component: {fileID: 7160357894009905508}
+  - component: {fileID: 706295840592856231}
+  - component: {fileID: 7415047712987007060}
+  - component: {fileID: 1727942966732123163}
+  m_Layer: 9
   m_Name: Hospital Final
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,3 +82,55 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &7160357894009905508
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619827400431012882}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 41.41611, y: 23.969816, z: 25.45}
+  m_Center: {x: -7.2339573, y: 11.195157, z: 1.8}
+--- !u!65 &706295840592856231
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619827400431012882}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 16.76, y: 23.969816, z: 11.59}
+  m_Center: {x: 2.2, y: 11.195157, z: 27.1}
+--- !u!65 &7415047712987007060
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619827400431012882}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 38.4, y: 23.969816, z: 0.8}
+  m_Center: {x: -8.5, y: 11.195157, z: 32.67}
+--- !u!65 &1727942966732123163
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619827400431012882}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 23.969816, z: 11.7}
+  m_Center: {x: -27.48, y: 11.195157, z: 27.1}

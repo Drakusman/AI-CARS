@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6172935086709368946}
   - component: {fileID: 2950329989428695620}
   - component: {fileID: 8920826110088818365}
-  m_Layer: 0
+  - component: {fileID: 1964005554849271023}
+  m_Layer: 9
   m_Name: Wooden fence gate base 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1964005554849271023
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7201803470868683361}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.1183488, y: 13.002062, z: 7.2063503}
+  m_Center: {x: -1.5591742, y: -0.4220755, z: 1.8807205}

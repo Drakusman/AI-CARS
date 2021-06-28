@@ -104,6 +104,15 @@ public class playerInteraction : MonoBehaviour
             brake_on = !brake_on;
 
         }
+        //braking
+        if(Input.GetKey(KeyCode.S))
+        {
+            brakeLights.SetActive(true);
+        }
+        else
+        {
+            brakeLights.SetActive(false);
+        }
         //toogle sidelights
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -174,6 +183,13 @@ public class playerInteraction : MonoBehaviour
             }
 
         }
+        //jump
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            print("add force");
+            GetComponent<Rigidbody>().AddForce(Vector3.up * 100000f);
+        }
+
         //turn on right blinkers
         if (Input.GetKeyDown(KeyCode.E))
         {

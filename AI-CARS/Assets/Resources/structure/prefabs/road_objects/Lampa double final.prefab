@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 8763762339774279566}
   - component: {fileID: 343441070240961976}
   - component: {fileID: 6339006408577902913}
-  m_Layer: 0
+  - component: {fileID: 3801835651124078269}
+  m_Layer: 9
   m_Name: Lampa double final
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &3801835651124078269
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5747853931663842717}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.6683645, y: 2, z: 2}
+  m_Center: {x: -1.3481667, y: 0.039370537, z: 0.00000023841858}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1298676020210238304}
   - component: {fileID: 8025085003404425558}
   - component: {fileID: 4351142590418503087}
+  - component: {fileID: 6237653364064619705}
   m_Layer: 0
   m_Name: Road Curve 2
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2620685059663196531}
   m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -6153.171, y: 13302.108, z: -10785.707}
-  m_LocalScale: {x: 0.1, y: 25, z: 1}
+  m_LocalScale: {x: 1, y: 25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -80,3 +81,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6237653364064619705
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2620685059663196531}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0009918, y: 6.205387, z: 288.51508}
+  m_Center: {x: 1.9850082, y: 1.1250963, z: 123.59919}

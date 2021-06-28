@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4927805617102848187}
   - component: {fileID: 4123067065619200653}
   - component: {fileID: 7639401077406942836}
+  - component: {fileID: 5978102761643257562}
   m_Layer: 0
   m_Name: Road Curve 70
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8230412712140731048}
   m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -7889.8423, y: 15895.698, z: -13240.037}
-  m_LocalScale: {x: 0.1, y: 25, z: 1}
+  m_LocalScale: {x: 1, y: 25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -80,3 +81,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &5978102761643257562
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8230412712140731048}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0009766, y: 5.923439, z: 245.82289}
+  m_Center: {x: 2.4182892, y: -2.1503515, z: 103.96455}

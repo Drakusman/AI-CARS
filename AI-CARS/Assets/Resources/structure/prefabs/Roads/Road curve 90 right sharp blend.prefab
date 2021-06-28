@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 814202174109071381}
   - component: {fileID: 8509452743173210659}
   - component: {fileID: 2678286372927438554}
+  - component: {fileID: -8040102769668180853}
   m_Layer: 0
   m_Name: Road curve 90 right sharp blend
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4402261251305622022}
   m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -8432.868, y: 16640.877, z: -13921.08}
-  m_LocalScale: {x: 0.1, y: 25, z: 0.9272511}
+  m_LocalScale: {x: 1, y: 25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -80,3 +81,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &-8040102769668180853
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4402261251305622022}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.001236, y: 6.9289665, z: 228.73654}
+  m_Center: {x: 3.565422, y: -3.3424091, z: -88.2923}

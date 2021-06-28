@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8754805791692710229}
   - component: {fileID: 298459977284016995}
   - component: {fileID: 6276010927454463898}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Lampa Triple final
   m_TagString: Untagged
   m_Icon: {fileID: 0}

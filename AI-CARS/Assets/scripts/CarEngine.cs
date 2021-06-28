@@ -98,6 +98,7 @@ public class CarEngine : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, end.transform.position) < 5f)
             {
+                GameObject.Find("admin").GetComponent<admin>().spawn_cars(1);
                 Destroy(gameObject);
             }
             SetLines();

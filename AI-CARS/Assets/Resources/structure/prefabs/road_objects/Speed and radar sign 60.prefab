@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3736952901968932050}
   - component: {fileID: 5658584238559467236}
   - component: {fileID: 2142549079043729949}
-  m_Layer: 0
+  - component: {fileID: 5354744656022311193}
+  m_Layer: 9
   m_Name: Speed and radar sign 60
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,3 +81,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &5354744656022311193
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398299210693205697}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.4017727, y: 8.656071, z: 0.04}
+  m_Center: {x: 0.17690085, y: 4.3548546, z: 0.044613957}

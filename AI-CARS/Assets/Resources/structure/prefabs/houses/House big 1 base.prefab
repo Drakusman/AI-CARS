@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7994753699513171280}
   - component: {fileID: 1416404754346002278}
   - component: {fileID: 4653517994536483743}
-  m_Layer: 0
+  - component: {fileID: 4264205807815933302}
+  m_Layer: 9
   m_Name: House big 1 base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4264205807815933302
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6388439605748567875}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0313823, y: 1.9999999, z: 2.3695}
+  m_Center: {x: 0.98430884, y: 0.22916664, z: -0.6485833}

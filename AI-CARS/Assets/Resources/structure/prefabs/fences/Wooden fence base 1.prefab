@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3840804951611642846}
   - component: {fileID: 5194411230152927720}
   - component: {fileID: 1957596981947487505}
-  m_Layer: 0
+  - component: {fileID: 341577867310266115}
+  m_Layer: 9
   m_Name: Wooden fence base 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &341577867310266115
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222398328213168589}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2144659, y: 19.94334, z: 3.2559428}
+  m_Center: {x: -1.1072329, y: -1.1369271, z: 0.6279714}

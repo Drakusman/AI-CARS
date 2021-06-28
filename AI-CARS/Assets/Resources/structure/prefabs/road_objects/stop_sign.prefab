@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 5599818756829825238}
   - component: {fileID: 2984054299503946331}
   - component: {fileID: 3539182329034321721}
-  m_Layer: 0
+  - component: {fileID: 6502522021979798173}
+  m_Layer: 9
   m_Name: Stop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,6 +82,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6502522021979798173
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533258360823656670}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 5.9719033, z: 0.09847944}
+  m_Center: {x: 0.042392258, y: 2.9850934, z: -0.0043348228}
 --- !u!1 &1203168538948689138
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,7 +106,7 @@ GameObject:
   - component: {fileID: 4225724704841139078}
   - component: {fileID: 7458388233882714132}
   - component: {fileID: 1783260725211798052}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Stop_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +182,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7689768690270660351}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: stop_sign
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3622431117354424219}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Road closed yellow sign COMPLETE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,8 @@ GameObject:
   - component: {fileID: 984156268235337935}
   - component: {fileID: 6389010198476277115}
   - component: {fileID: 8786993654971781263}
-  m_Layer: 0
+  - component: {fileID: 1875551854333741150}
+  m_Layer: 9
   m_Name: Cube.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,6 +112,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1875551854333741150
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3897191447964458148}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.262004, y: 4.7068486, z: 22.063526}
+  m_Center: {x: -5.128077, y: -0.0028939247, z: -0.6105685}
 --- !u!1 &5606944505477630390
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +136,7 @@ GameObject:
   - component: {fileID: 2308611518706969269}
   - component: {fileID: 7978477802829782434}
   - component: {fileID: 5501927464982064452}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +214,7 @@ GameObject:
   - component: {fileID: 2211891935121518581}
   - component: {fileID: 307249413444794299}
   - component: {fileID: 671642519912088069}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

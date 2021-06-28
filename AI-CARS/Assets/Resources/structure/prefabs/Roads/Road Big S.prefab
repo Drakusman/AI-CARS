@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4337054556338065922}
   - component: {fileID: 4713956667229349940}
   - component: {fileID: 1321771270559356109}
+  - component: {fileID: 2087520462420092314}
   m_Layer: 0
   m_Name: Road Big S
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 750704736622338065}
   m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -5727.4106, y: 11944.63, z: -9606.749}
-  m_LocalScale: {x: 0.1, y: 25, z: 3.788301}
+  m_LocalScale: {x: 1, y: 25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -80,3 +81,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &2087520462420092314
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750704736622338065}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0010986, y: 11.21481, z: 160.81924}
+  m_Center: {x: 14.156326, y: 2.88652, z: 75.73401}
